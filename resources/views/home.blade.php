@@ -7,7 +7,12 @@
     <title>Document</title>
 </head>
 <body>
+    @auth
     <h1>Home Page</h1>
+    <p>Congrats your logged in </p>
+    <h2> Welcome, {{ auth()->user()->name }}!</h2>
+    @else
+    <h1>Register</h1>
     <form action="/register" method="POST">
         @csrf
         <input type="text" name="name" placeholder="Name">
@@ -15,6 +20,9 @@
         <input type="password" name="password" placeholder="Password">
         <button type="submit">Register</button> 
     </form>
+      
+    @endauth
+   
 
 </body>
 </html>
